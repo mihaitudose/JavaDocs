@@ -24,7 +24,6 @@ public class CollectTest {
     public void noDuplicatedWithStreams() {
         List<Integer> noDuplicates = new ArrayList<>();
         //TODO #C3
-        noDuplicates = number.stream().distinct().collect(Collectors.toList());
 
         assertThat(noDuplicates, is(Arrays.asList(2, 4, 1, 9)));
     }
@@ -33,7 +32,6 @@ public class CollectTest {
     public void noDuplicatesWithCollector() {
         Set<Integer> noDuplicates = new HashSet<>();
         //TODO #C3
-        noDuplicates = number.stream().collect(Collectors.toSet());
 
         Set<Integer> expected = new HashSet<>(Arrays.asList(2, 4, 1, 9));
         assertThat(noDuplicates, is(expected));
@@ -45,7 +43,7 @@ public class CollectTest {
        //TODO #C4
 
         Set<Integer> expected = new TreeSet<>(Arrays.asList(2, 4, 1, 9));
-        noDuplicates = number.stream().collect(Collectors.toCollention(ThreeSet::new));
+
         assertThat(noDuplicates, is(expected));
         assertThat(noDuplicates, instanceOf(TreeSet.class));
     }

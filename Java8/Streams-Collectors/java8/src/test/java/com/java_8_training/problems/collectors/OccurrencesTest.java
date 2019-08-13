@@ -22,8 +22,6 @@ public class OccurrencesTest {
         //TODO #C9
         Map<String, Long> occ = new HashMap<>();
 
-        occ = Arrays.stream(word.split("")).collect(groupingBy(l -> l, counting()));
-
         assertEquals(2, (long) occ.get("o"));
         assertEquals(1, (long) occ.get("c"));
         assertEquals(1, (long) occ.get("l"));
@@ -36,7 +34,7 @@ public class OccurrencesTest {
         List<String> sentences = Arrays.asList("Hello everyone!", "Java 8 is here!");
 
         //TODO #C9
-        Map<String, Long> occ = sentences.stream().map((String s) -> s.split("")).flipMap(Arrays::stream).flatMap(Arrays::stream).collect(groupingBy(indentity(), counting()));
+        Map<String, Long> occ = new HashMap<>();
 
 
         assertEquals(2, (long) occ.get("l"));
